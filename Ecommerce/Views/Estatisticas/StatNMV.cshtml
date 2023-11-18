@@ -1,0 +1,25 @@
+﻿@model Ecommerce.Models.Stat
+
+@{
+    ViewBag.Title = "StatNMV";
+}
+
+<h2>Valor médio de vendas</h2>
+
+<div>
+  
+    <hr />
+    <dl class="dl-horizontal">
+        <br>
+        </br>
+        <p class="font-weight-bold">O valor médio de vendas é de @Html.DisplayFor(m => m.qtd)€</p>
+        <p class="font-weight-bold">Foram realizados @Html.DisplayFor(m => m.tipo) pedidos.</p>
+        <br>
+        </br>
+
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Voltar atrás", "Index")
+</p>

@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Ecommerce.Models.Produtos>
+
+@{
+    ViewBag.Title = "View";
+}
+
+<h2>View</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+         
+        </div>
+        <div class="col-md-6">
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayName("Nome")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Preço")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Quantidade")
+                    </th>
+
+                    <th>
+                        @Html.DisplayName("Origem")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Categoria")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Descrição")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Remover")
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NomeP)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PrecoP)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.QuantP)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.OrigemP)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CategoriaP)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Description)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete", "Delete", new { id = item.IdProduto }) |
+
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+        <div class="col-md-3">
+           
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            @if (ViewBag.Total != null)
+            {
+                <p class="text-justify">
+                    Voce tem: @ViewBag.Total Produtos
+                </p>
+            }
+        </div>
+        <div class="col-md-6">
+            @if (ViewBag.PrecoFinal != null)
+            {
+                <p class="text-justify">
+                    Total a pagar é de @ViewBag.PrecoFinal Euros
+                </p>
+            }
+        </div>
+        <div class="col-md-3">
+ 
+
+            @Html.ActionLink("Checkout", "Create",
+            "Pedidos", null, new { @class = "btn btn-success", @type = "button" }) 
+        </div>
+    </div>
+</div>
+
+    

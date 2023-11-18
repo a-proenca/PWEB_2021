@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Ecommerce.Models.Funcionários>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Funcionários</h2>
+
+<p>
+    @Html.ActionLink("Registo", "Register")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NIFF)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NIFF)
+        </td>
+    </tr>
+}
+
+</table>

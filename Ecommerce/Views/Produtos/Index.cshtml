@@ -1,0 +1,86 @@
+﻿@model IEnumerable<Ecommerce.Models.Produtos>
+
+@{
+    ViewBag.Title = "Lista de Produtos";
+}
+
+<h2>Lista de Produtos</h2>
+
+
+
+@using (Html.BeginForm("Index", "Produtos", FormMethod.Get))
+{
+    <p>
+        Pesquisa por nome: @Html.TextBox("SearchString", ViewBag.OrdemDefault as string)
+        <input type="submit" value="Search" />
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+            </th>
+            <th>
+                @Html.ActionLink("CategoriaP", "Index", new { sortOrder = ViewBag.OrdemCategoria })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrigemP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.Display("Preço")
+            </th>
+            <th>
+                @Html.Display("Estado")
+            </th>
+            <th>
+                @Html.Display("Desconto")
+            </th>
+            @if (User.IsInRole("Cliente"))
+            {
+             <th>Comprar</th>
+            }
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoriaP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrigemP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecoP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoP)
+        </td>
+        <td>
+            @if (item.Desc == true)
+            {
+                <span class="badge rounded-pill bg-danger">Desconto! @item.DesctP%</span>
+
+            }
+        </td>
+        <td>
+        @if (User.IsInRole("Cliente") && item.EstadoP != "Out of Stock")
+        {
+                @Html.ActionLink("Adicionar ao Carrinho", "Adicionar", new { id = item.IdProduto }, new { @class = "btn btn-success", @type = "button" })
+
+        }
+        </td>
+    </tr>
+        }
+
+    </table>
+}

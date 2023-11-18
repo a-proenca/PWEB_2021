@@ -1,0 +1,102 @@
+﻿@model Ecommerce.Models.Pedidos
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pedidos</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DataEntrega)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataEntrega)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EstadoPd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EstadoPd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Levantamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Levantamento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MoradaPd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MoradaPd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ValorPd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ValorPd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MetodoPag)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MetodoPag)
+        </dd>
+
+    </dl>
+</div>
+
+@if (Model.Produto != null) { 
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("Produto")
+        </th>
+        <th>
+            @Html.DisplayName("Quantidade")
+        </th>
+       
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Produto)
+    {
+       
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantP)
+            </td>
+        </tr>
+    }
+
+</table>}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdPd }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

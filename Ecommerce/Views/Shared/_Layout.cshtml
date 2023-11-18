@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - E-Commerce</title>
+    <link rel="icon" type="image/x-icon" href="~/img/Icon.png" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("E-commerce", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @if (User.Identity.IsAuthenticated == false)
+                    {
+                        <li>@Html.ActionLink("Catálogo de Produtos", "Index", "Produtos")</li>
+                    }
+                    @if (this.User.IsInRole("Empresa"))
+                    {
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Empresa<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Catálogo de Produtos", "ProdutosEmp", "Produtos")</li>
+                                <li>@Html.ActionLink("Adicionar Produtos", "Create", "Produtos")</li>
+                                <li class="nav-divider"></li>
+                                <li>@Html.ActionLink("Gestão de Funcionários", "Index", "Funcionários")</li>
+                                <li>@Html.ActionLink("Registar Funcionario", "Register", "Funcionários")</li>
+                                <li class="nav-divider"></li>
+                                <li>@Html.ActionLink("Lista de Empresas", "Index", "Empresas")</li>
+                                <li class="nav-divider"></li>
+                                <li>@Html.ActionLink("Mudar Senha", "ChangePassword", "Manage")</li>
+                                <li>@Html.ActionLink("Mudar Logótipo", "Image", "Empresas")</li>
+                                <li class="nav-divider"></li>
+                                <li>@Html.ActionLink("Estatisticas", "Index", "Estatisticas")</li>
+                            </ul>
+                        </li>
+                    }
+                    @if (this.User.IsInRole("Admin"))
+                    {
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Painel Admin<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Gestão de Empresas", "Index", "Empresas")</li>
+                                <li>@Html.ActionLink("Gestão de Clientes", "Index", "UsersAdmin")</li>
+                                <li class="nav-divider"></li>
+                                <li>@Html.ActionLink("Catálogo de Produtos", "Index", "Produtos")</li>
+                            </ul>
+                        </li>
+
+                    }
+
+                    @if (this.User.IsInRole("Cliente"))
+                    {
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Cliente<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Lista de Produtos", "Index", "Produtos")</li>
+                                <li>@Html.ActionLink("Lista de Empresas", "Index", "Empresas")</li>
+                                <li>@Html.ActionLink("Histórico","PedidosCliente","Pedidos")
+                            </ul>
+                        </li>
+                    }
+                    @if (this.User.IsInRole("Funcionário"))
+                    {
+                        <li>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Funcionários<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Gerir Compras", "Pedidos", "Pedidos")</li>
+                                <li>@Html.ActionLink("Criar Promoção", "ProdutosFunc", "Produtos")</li>
+                            </ul>
+                        </li>
+                    }
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    @if (Session["Carrinho"] != null)
+                    {
+                        <li>@Html.ActionLink("Voce têm " + @Session["Valor"] + " produtos no seu carrinho", "Compra", "Carrinho")</li>
+
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="py-5 bg-black">
+            <div class="container">
+                <p class="m-0 text-center text-white small">Copyright &copy; E-Commerce Website 2021</p>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Ecommerce.Models.Pedidos>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Histórico de Pedidos</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DataEntrega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataPd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoPd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Levantamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoradaPd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorPd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MetodoPag)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataEntrega)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataPd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoPd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Levantamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoradaPd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ValorPd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MetodoPag)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.IdPd }) |
+            @Html.ActionLink("Details", "Details", new { id=item.IdPd }) |
+        </td>
+    </tr>
+}
+
+</table>

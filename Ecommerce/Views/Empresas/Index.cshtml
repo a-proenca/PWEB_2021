@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Ecommerce.Models.Empresas>
+
+@{
+    ViewBag.Title = "Empresas";
+}
+<h2>Lista de Empresas</h2>
+@using (Html.BeginForm("Index", "Empresas", FormMethod.Get))
+{
+
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink("Empresas", "Index", new { sortOrder = ViewBag.NameSortParm })
+            </th>
+            <th>
+                @Html.DisplayName("Logo")
+            </th>
+            <th>
+                @Html.DisplayName("Endereço")
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                <td>
+                    <img src="@Url.Content(item.Imagem.ImagePath)" alt="Image" width="180" height="80" />
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MoradaEmp)
+                </td>
+            </tr>
+        }
+
+    </table>
+}

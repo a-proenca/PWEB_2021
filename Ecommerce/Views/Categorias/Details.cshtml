@@ -1,0 +1,27 @@
+﻿@model Ecommerce.Models.Categorias
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Categorias</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeCat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeCat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.IdCat }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

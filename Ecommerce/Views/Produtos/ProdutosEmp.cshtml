@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Ecommerce.Models.Produtos>
+@{
+    ViewBag.Title = "ProdutosEmp";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ProdutosEmp</h2>
+
+
+@using (Html.BeginForm("Index", "Produtos", FormMethod.Get))
+{
+    <p>
+        Pesquisa por nome: @Html.TextBox("SearchString", ViewBag.OrdemDefault as string)
+        <input type="submit" value="Search" />
+    </p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.ActionLink("Last Name", "Index", new { sortOrder = ViewBag.NameSortParm })
+            </th>
+            <th>
+                @Html.ActionLink("CategoriaP", "Index", new { sortOrder = ViewBag.OrdemCategoria })
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrigemP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecoP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EstadoP)
+            </th>
+            <th>
+                @Html.DisplayName("Funcionalidade")
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoriaP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrigemP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrecoP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EstadoP)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Editar Produto", "Edit", new { id = item.IdProduto }) |
+            @Html.ActionLink("Eliminar Produto", "Delete", new { id = item.IdProduto })
+        </td>
+            </tr>
+        }
+
+    </table>
+}

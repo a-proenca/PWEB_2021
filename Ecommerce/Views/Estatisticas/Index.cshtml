@@ -1,0 +1,29 @@
+﻿@model Ecommerce.Models.Estatisticas
+
+@{
+    ViewBag.Title = "View";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="text-center">Estatisticas</h2>
+
+<br>
+  </br>
+<br>
+  </br>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4">
+            @Html.ActionLink("Estatistica número médio de vendas", "StatNMC", null, new { @class = "btn btn-primary", @type = "button" })
+        </div>
+        <div class="col-sm-4">
+            @Html.ActionLink("Número de clientes que compraram produtos", "estatisticaprodutos", null, new { @class = "btn btn-primary", @type = "button" })
+        </div>
+        <div class="col-sm-4">
+            @Html.ActionLink("Estatistica média de preço de venda", "StatNMV", null, new { @class = "btn btn-primary", @type = "button" })
+        </div>
+    </div>
+</div>
+
+

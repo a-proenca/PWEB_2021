@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Ecommerce.Models.Pedidos>
+@{
+    ViewBag.Title = "PedidosCliente";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PedidosCliente</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DataEntrega)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataPd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoPd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Levantamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MoradaPd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ValorPd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MetodoPag)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataEntrega)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoPd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Levantamento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MoradaPd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ValorPd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MetodoPag)
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,22 @@
+﻿@model Ecommerce.Models.Stat
+
+@{
+    ViewBag.Title = "estatisticaprodutos";
+}
+
+<h2>estatisticaprodutos</h2>
+
+<div>
+    <h4>Stat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <br>
+        </br>
+        <p class="font-weight-bold">Foram @Html.DisplayFor(m => m.qtd) clientes distintos que realizaram compras de produtos</p>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Voltar atrás", "Index")
+
+</p>
