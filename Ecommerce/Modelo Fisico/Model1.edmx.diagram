@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a57bbb81cce14e7d92d09aaabc029016" Name="Diagram1">
+        <EntityTypeShape EntityType="Modelo_Fisico.C__MigrationHistory" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo_Fisico.AspNetRoles" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo_Fisico.AspNetUserClaims" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo_Fisico.AspNetUserLogins" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo_Fisico.AspNetUsers" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo_Fisico.Images" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo_Fisico.Pedidos" Width="1.5" PointX="5.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo_Fisico.Produtos" Width="1.5" PointX="7.5" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Modelo_Fisico.Vendas" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Modelo_Fisico.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo_Fisico.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo_Fisico.FK_dbo_AspNetUsers_dbo_AspNetUsers_Empresas_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo_Fisico.FK_dbo_Pedidos_dbo_AspNetUsers_Clientes_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo_Fisico.FK_dbo_Produtos_dbo_AspNetUsers_Empresa_Id" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo_Fisico.FK_dbo_Produtos_dbo_Pedidos_Pedidos_IdPd" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo_Fisico.FK_dbo_Produtos_dbo_Produtos_Produto_IdProduto" ManuallyRouted="false" />
+        <AssociationConnector Association="Modelo_Fisico.AspNetUserRoles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
